@@ -1,0 +1,27 @@
+{
+  "builders": [
+    {
+      "accelerator": "kvm",
+      "boot_command": [
+        "<tab><wait>",
+        "auto autourl=http://{{ .HTTPIP }}:{{ .HTTPPort }}/cloud.cfg",
+        "<enter>"
+      ],
+      "boot_wait": "5s",
+      "disk_interface": "virtio",
+      "disk_size": "2000M",
+      "format": "qcow2",
+      "http_directory": "http",
+      "iso_checksum": "sha256:c471733859ff0a315e3848fe39c153e22700b1baa039453358643bbae93b7058",
+        "iso_url": "https://alpha.de.repo.voidlinux.org/live/20191109/void-live-x86_64-20191109.iso",
+        "net_device": "virtio-net",
+      "output_directory": "output_void_qcow2",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+      "ssh_password": "vagrant",
+      "ssh_timeout": "20m",
+      "ssh_username": "vagrant",
+      "type": "qemu",
+      "vm_name": "DO-glibc64"
+    }
+  ]
+}
